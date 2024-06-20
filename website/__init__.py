@@ -10,7 +10,7 @@ def create_app():
     app.config["SECRET_KEY"] = 'Zoro2710'
     app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{DB_NAME}"
 
-    db.__init__(app)
+    db.init_app(app)
 
 
     from .views import views
@@ -25,9 +25,8 @@ def create_app():
     return app
 
 def create_database(app):
-    if not path.exists('website/'+ DB_NAME):
-        db.create_all(app)
-        print('Created')
+    with app.app_context():
+        db.create_all()
 
 
 
