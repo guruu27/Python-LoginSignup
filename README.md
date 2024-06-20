@@ -77,4 +77,4 @@ Make sure you have the latest version of Python installed. You can download it f
 ## Viewing the App
 
 Open your browser and navigate to:
-
+http://127.0.0.1:5000
